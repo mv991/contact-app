@@ -17,7 +17,7 @@ function App() {
    },[])
   
  async function deleteContact(id) {
-   await axios.delete(`https://contact-app-rshq.onrender.com/${id}`)
+   await axios.delete(`https://contact-app-rshq.onrender.com/deleteContact/${id}`)
    const newContacts = contacts.filter(c => c._id!==id);
    setContacts(newContacts)
  }
@@ -38,7 +38,7 @@ function App() {
     <h1 className="font-mono font-semibold sm:text-3xl text-xl text-center">Contact Management App</h1>
       <div className="flex sm:flex-row flex-col w-full justify-center sm:justify-between sm:p-0 px-3">
            <input placeholder="Search for a Contact..." onChange={(e) => handleChange(e.target.value)} className="p-2 bg-[#fafafa] rounded-3xl my-3 px-4 sm:w-[300px] w-full "/>
-              <button onClick={() => setShowModal(true)} className="rounded-md bg-purple-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add New</button>
+            <button onClick={() => setShowModal(true)} className="rounded-md bg-purple-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add New</button>
         
       </div>
       <div className="bg-gray-100  w-full hidden md:grid md:grid-cols-[15%,15%,18%,15%,15%,15%,7%]   grid-cols-[30%,30%,30%] gap-y-4 h-fit my-4 py-3 rounded-md text-center">

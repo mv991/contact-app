@@ -72,6 +72,9 @@ export default function Modal({
         .catch((e) => console.log(e));
     }
     setShowModal(false);
+    setStates(null);
+    setCities(null);
+    setModalData(null)
   }
   return (
     <>
