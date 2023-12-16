@@ -40,7 +40,6 @@ export default function Modal({
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.firstName.value,"fortsname")
     const formData = {
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
@@ -53,7 +52,7 @@ export default function Modal({
     if (modalData) {
       
       await axios
-        .put(`http://localhost:8000/updateContact`, {formData:formData,id:modalData._id})
+        .put(`https://contact-app-rshq.onrender.com/updateContact`, {formData:formData,id:modalData._id})
         .then((res) => {
          const newContacts = contacts.map((c) => {
              if(c._id===modalData._id) {
@@ -68,7 +67,7 @@ export default function Modal({
        
     } else {
       await axios
-        .post(`http://localhost:8000/addContact`, formData)
+        .post(`https://contact-app-rshq.onrender.com/addContact`, formData)
          .then((res) => setContacts((prev) => ([...prev,res.data.contact])))
         .catch((e) => console.log(e));
     }

@@ -9,7 +9,7 @@ function App() {
 
    const getContacts =  () => {
     axios
-    .get(`http://localhost:8000/getContacts`)
+    .get(`https://contact-app-rshq.onrender.com/getContacts`)
     .then((res) => setContacts(res.data.contacts))
    }
    useEffect(() => {
@@ -17,14 +17,14 @@ function App() {
    },[])
   
  async function deleteContact(id) {
-   await axios.delete(`http://localhost:8000/deleteContact/${id}`)
+   await axios.delete(`https://contact-app-rshq.onrender.com/${id}`)
    const newContacts = contacts.filter(c => c._id!==id);
    setContacts(newContacts)
  }
 
    function handleChange(query) {
     axios
-      .get(`http://localhost:8000/searchContacts?query=${query}`)
+      .get(`https://contact-app-rshq.onrender.com/searchContacts?query=${query}`)
       .then((res) => setContacts([...res.data.result]))
 
    
