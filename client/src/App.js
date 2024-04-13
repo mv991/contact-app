@@ -6,11 +6,13 @@ function App() {
    const [showModal, setShowModal] = useState(false);
    const [modalData, setModalData] = useState(null);
    const [contacts, setContacts] = useState([]);
+   const [loading, setLoading] = useState(true);
 
    const getContacts =  () => {
     axios
     .get(`https://contact-app-rshq.onrender.com/getContacts`)
     .then((res) => setContacts(res.data.contacts))
+    .then(res => setLoading(false))  
    }
    useEffect(() => {
      getContacts();
@@ -31,6 +33,7 @@ function App() {
    }
   return (
     <div className="main-card md:w-[95%] w-[92%]  bg-white mx-auto rounded-3xl min-h-[90vh] h-fit my-12 shadow-md font-mono">
+    {loading && <div className="flex items-center justify-center text-center">Loading.....</div>}
     {showModal && <Modal showModal={showModal} setShowModal={setShowModal} contacts = {contacts} setContacts={setContacts} modalData={modalData} setModalData={setModalData} />}
     <Navbar/>
     <div className="flex">
