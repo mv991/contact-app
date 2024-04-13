@@ -33,7 +33,7 @@ function App() {
    }
   return (
     <div className="main-card md:w-[95%] w-[92%]  bg-white mx-auto rounded-3xl min-h-[90vh] h-fit my-12 shadow-md font-mono">
-    {loading && <div className="flex items-center justify-center text-center">Loading.....</div>}
+    {loading && <div className="flex items-center h-screen w-screen justify-center text-center"><div><h1>Loading.....</h1></div></div>}
     {showModal && <Modal showModal={showModal} setShowModal={setShowModal} contacts = {contacts} setContacts={setContacts} modalData={modalData} setModalData={setModalData} />}
     <Navbar/>
     <div className="flex">
